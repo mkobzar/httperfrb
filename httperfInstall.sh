@@ -4,6 +4,7 @@ sudo apt-get -q -y install ruby
 sudo apt-get -q -y install autoconf
 sudo apt-get -q -y install libtool
 sudo apt-get -q -y install make
+sudo apt-get -q -y install gnuplot-x11
 mkdir $HOME/git
 cd $HOME/git
 sudo git clone https://github.com/mkobzar/httperfrb.git
@@ -29,5 +30,6 @@ sudo make
 sudo make install
 cd
 bundle exec autoperf -c autoPerfExample.yml > results.csv
-
-httperf --hog --server www.example.com --ssl --print-reply=[SB] --print-reply=[SB] --ssl-protocol=auto
+sh ./bench2graph results.csv results.jpg 16 20 22 31 32 33 34 37
+bundle exec autoperf -c autoPerfSampleConsoleFewFields.yml 
+# httperf --hog --server www.example.com --ssl --print-reply=[SB] --print-reply=[SB] --ssl-protocol=auto
