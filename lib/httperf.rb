@@ -150,7 +150,9 @@ class HTTPerf
         opts << "--#{key}=#{val} "
       end
     end
-    opts.gsub!("--hog=true", "--hog")
+    opts.gsub!("--ssl=true", "--ssl")
+    opts.gsub!("--ssl=false", "")
+	opts.gsub!("--hog=true", "--hog")
     opts.gsub!("--hog=false", "")
     opts.gsub!("--verbose=true", "--verbose")
     opts.gsub!("--verbose=false", "")
@@ -207,7 +209,7 @@ class HTTPerf
     raise "Option command must not be passed with other options" unless options.empty?
 
     raise "Invalid httperf command" unless !!(command.match(/([a-z\/]*)httperf /))
-
+	command.gsub!("--ssl", "--ssl=true")
     command.gsub!("--hog", "--hog=true")
     command.gsub!("--verbose", "--verbose=true")
 
