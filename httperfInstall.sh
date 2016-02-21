@@ -29,7 +29,8 @@ sudo ../configure
 sudo make
 sudo make install
 cd
-bundle exec autoperf -c autoPerfExample.yml > results.csv
-sh ./bench2graph results.csv results.jpg 16 20 22 31 32 33 34 37
-bundle exec autoperf -c autoPerfSampleConsoleFewFields.yml 
-# httperf --hog --server www.example.com --ssl --print-reply=[SB] --print-reply=[SB] --ssl-protocol=auto
+#bundle exec autoperf -c autoPerfSampleJsonFewFields.yml > results.json
+#sh ./bench2graph results.csv results.jpg 16 20 22 31 32 33 34 37
+#sh ./bench2graph results.csv results.jpg foo 
+#bundle exec autoperf -c autoPerfSampleConsoleFewFields.yml 
+httperf --hog --server www.example.com --ssl --print-reply=[SB] --print-reply=[SB] --ssl-protocol=auto
